@@ -1,9 +1,11 @@
-# Live Demo
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-brightgreen?style=for-the-badge)](https://sahayak-aiforbharat.netlify.app/)
 
-### 🚀 Explore the Live Demo!
+# AI-BHARAT
 
-Check out our deployed application on Netlify:
+... other content ...
 
-[**Live Demo**](https://your-netlify-deployed-url.com)
+## Live Demo
 
-Experience the features and functionalities of AI-BHARAT in action!
+Check out the live demo [here](https://sahayak-aiforbharat.netlify.app/)!
+
+... other content ...
