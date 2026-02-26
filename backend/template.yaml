@@ -1,0 +1,85 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: SahayakAI Backend
+
+Globals:
+  Function:
+    Timeout: 30
+    Runtime: nodejs18.x
+    Environment:
+      Variables:
+        REGION: ap-south-1
+        DYNAMODB_TABLE: !Ref SchemeRulesTable
+  Api:
+    Cors:
+      AllowMethods: "'GET,POST,OPTIONS'"
+      AllowHeaders: "'Content-Type'"
+      AllowOrigin: "'*'"
+
+Resources:
+  # Combined API Handler Function
+  ApiHandlerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: functions/apiHandler/
+      Handler: index.handler
+      Policies:
+        - DynamoDBReadPolicy:
+            TableName: !Ref SchemeRulesTable
+        - Statement:
+          - Effect: Allow
+            Action:
+              - bedrock:InvokeModel
+            Resource: "*"
+        - Statement:
+          - Effect: Allow
+            Action:
+              - translate:TranslateText
+            Resource: "*"
+      Events:
+        CheckEligibility:
+          Type: Api
+          Properties:
+            Path: /check-eligibility
+            Method: post
+        SchemeData:
+          Type: Api
+          Properties:
+            Path: /scheme-data
+            Method: get
+        OptionsCheckEligibility:
+          Type: Api
+          Properties:
+            Path: /check-eligibility
+            Method: options
+        OptionsSchemeData:
+          Type: Api
+          Properties:
+            Path: /scheme-data
+            Method: options
+
+  # DynamoDB Table for Scheme Rules
+  SchemeRulesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: SchemeRules
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: schemeId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: schemeId
+          KeyType: HASH
+
+Outputs:
+  ApiUrl:
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod"
+    Description: API Gateway endpoint URL
+  
+  ApiId:
+    Value: !Ref ServerlessRestApi
+    Description: API Gateway ID
+  
+  DynamoDBTable:
+    Value: !Ref SchemeRulesTable
+    Description: DynamoDB table name

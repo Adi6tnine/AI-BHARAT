@@ -1,0 +1,71 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Build outputs
+dist/
+build/
+*/dist/
+*/build/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# AWS SAM
+.aws-sam/
+
+# Local testing
+*.local.js
+test-*.js
+
+# Internal documentation and notes (exclude from repo)
+AI_USAGE.md
+AI_CHECKLIST_SUMMARY.md
+AI_VISIBILITY_CHECKLIST.md
+CURRENT_STATUS.md
+DEPLOYMENT_READY.md
+FINAL_JUDGE_UPGRADES_COMPLETE.md
+JUDGE_DEMO_SCRIPT.md
+LOCAL_TESTING.md
+MOCK_RESPONSES.md
+WHAT_TO_IMPLEMENT.md
+.project-summary.md
+frontend/ADD_LOGO.md
+frontend/AI_CHECKLIST_FEATURE.md
+frontend/ALL_FIXES_COMPLETE.md
+frontend/COMING_SOON_FEATURE.md
+frontend/DESIGN_REFERENCE.md
+frontend/FIXES_NEEDED.md
+frontend/MODERN_DESIGN_COMPLETE.md
+frontend/RESULTS_PREVIEW.md
+frontend/VISUAL_FIXES_APPLIED.md
+
+# Kiro IDE
+.kiro/

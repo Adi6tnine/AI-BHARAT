@@ -1,0 +1,118 @@
+{
+  "schemeId": "pm-kisan",
+  "schemeName": "PM Kisan Samman Nidhi",
+  "version": "2024",
+  "benefit": {
+    "amount": 6000,
+    "currency": "INR",
+    "frequency": "annual",
+    "installments": 3,
+    "perInstallment": 2000
+  },
+  "exclusionCriteria": [
+    {
+      "code": "GOVT_EMPLOYEE_EXCLUSION",
+      "description": "Former and present holders of constitutional posts",
+      "field": "isGovtEmployee",
+      "value": true,
+      "message_en": "You or your spouse is a current or former government employee. Government employees and their families are excluded from PM Kisan.",
+      "message_hi": "आप या आपके पति/पत्नी वर्तमान या पूर्व सरकारी कर्मचारी हैं। सरकारी कर्मचारी और उनके परिवार PM किसान से बाहर हैं।"
+    },
+    {
+      "code": "INCOME_TAX_EXCLUSION",
+      "description": "Income tax payers in last assessment year",
+      "field": "isTaxPayer",
+      "value": true,
+      "message_en": "You or your spouse paid income tax in the last assessment year. Income tax payers are not eligible for PM Kisan.",
+      "message_hi": "आपने या आपके पति/पत्नी ने पिछले वर्ष आयकर भरा है। आयकरदाता PM किसान के लिए पात्र नहीं हैं।"
+    },
+    {
+      "code": "INSTITUTIONAL_HOLDER",
+      "description": "Institutional land holders",
+      "field": "isInstitutionalHolder",
+      "value": true,
+      "message_en": "Land owned by institutions (trusts, companies, etc.) is not eligible. PM Kisan is only for individual farmer families.",
+      "message_hi": "संस्थाओं (ट्रस्ट, कंपनियों आदि) की ज़मीन पात्र नहीं है। PM किसान केवल व्यक्तिगत किसान परिवारों के लिए है।"
+    },
+    {
+      "code": "NO_LAND_OWNERSHIP",
+      "description": "Does not own agricultural land",
+      "field": "hasLand",
+      "value": false,
+      "message_en": "PM Kisan requires you to own agricultural land. Landless laborers are not eligible, but may qualify for MGNREGS.",
+      "message_hi": "PM किसान के लिए आपके पास कृषि भूमि होना ज़रूरी है। भूमिहीन मज़दूर पात्र नहीं हैं, लेकिन MGNREGS के लिए आवेदन कर सकते हैं।"
+    }
+  ],
+  "landLimits": {
+    "small": 2.0,
+    "marginal": 1.0,
+    "all": 99.0
+  },
+  "eligibilityCodes": {
+    "ELIGIBLE_SMALL_FARMER": {
+      "message_en": "You qualify as a small farmer with land up to 2 hectares.",
+      "message_hi": "आप 2 हेक्टेयर तक भूमि वाले छोटे किसान के रूप में पात्र हैं।"
+    },
+    "ELIGIBLE_MARGINAL_FARMER": {
+      "message_en": "You qualify as a marginal farmer with land up to 1 hectare.",
+      "message_hi": "आप 1 हेक्टेयर तक भूमि वाले सीमांत किसान के रूप में पात्र हैं।"
+    },
+    "LAND_SIZE_EXCEEDS_LIMIT": {
+      "message_en": "Your land holding exceeds the limit for your farmer category.",
+      "message_hi": "आपकी भूमि आपकी किसान श्रेणी की सीमा से अधिक है।"
+    }
+  },
+  "requiredDocuments": [
+    "Aadhaar Card",
+    "Land Records / Khasra-Khatauni",
+    "Bank Account Passbook",
+    "Mobile Number linked to Aadhaar"
+  ],
+  "alternativeSchemes": [
+    {
+      "id": "mgnregs",
+      "name": "MGNREGS",
+      "fullName": "Mahatma Gandhi National Rural Employment Guarantee Scheme",
+      "description": "Guarantees 100 days of wage employment per year to rural households",
+      "benefit": "Minimum wage for 100 days/year",
+      "eligibility": "Any rural household willing to do unskilled manual work",
+      "website": "https://nrega.nic.in"
+    },
+    {
+      "id": "pm-fasal-bima",
+      "name": "PM Fasal Bima Yojana",
+      "fullName": "Pradhan Mantri Fasal Bima Yojana",
+      "description": "Crop insurance scheme for farmers",
+      "benefit": "Insurance coverage against crop loss",
+      "eligibility": "All farmers growing notified crops",
+      "website": "https://pmfby.gov.in"
+    }
+  ],
+  "commonRejectionReasons": [
+    {
+      "rank": 1,
+      "reason": "Name mismatch between Aadhaar and land records",
+      "prevention": "Ensure your name is spelled identically on all documents"
+    },
+    {
+      "rank": 2,
+      "reason": "Bank account not linked to Aadhaar",
+      "prevention": "Link your Aadhaar to your bank account before applying"
+    },
+    {
+      "rank": 3,
+      "reason": "Incorrect land record details",
+      "prevention": "Double-check Khasra number and land size from official records"
+    },
+    {
+      "rank": 4,
+      "reason": "Mobile number not registered or wrong",
+      "prevention": "Use mobile number linked to your Aadhaar card"
+    },
+    {
+      "rank": 5,
+      "reason": "Applying under wrong farmer category",
+      "prevention": "Verify your category from official land records"
+    }
+  ]
+}
